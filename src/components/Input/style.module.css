@@ -1,0 +1,17 @@
+.main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    align-items: start;
+}
+
+.input {
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.output {
+    max-width: 50%;
+}

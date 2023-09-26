@@ -1,0 +1,15 @@
+.block {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.header {
+    font-size: 24px;
+    color: #333;
+    padding-bottom: 5px;
+}
+
+.text {
+    font-size: 16px;
+    padding: 0 0 5px 10px;
+}

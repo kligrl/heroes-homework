@@ -1,12 +1,8 @@
 import Style from './style.module.css'
+import { TBlockProps } from './HeroBlockSection.type'
 
-type TBlockProps = {
-    name: string,
-    hp: number,
-    city: string
-}
 
-function HeroBlockSection(props: TBlockProps) {
+export const HeroBlockSection = (props: TBlockProps) => {
     return (
         <div className={Style.block}>
             <h1 className={Style.header}>
@@ -21,5 +17,3 @@ function HeroBlockSection(props: TBlockProps) {
         </div>
     )
 }
-
-export default HeroBlockSection

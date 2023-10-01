@@ -1,10 +1,10 @@
 import './App.css';
-import Input from './components/Input';
+import { PageContent } from './components/PageContent/PageContentContainer';
 
 function App() {
   return (
     <div className="App">
-      <Input />
+      <PageContent />
     </div>
   );
 }

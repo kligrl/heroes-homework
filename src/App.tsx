@@ -1,10 +1,36 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
-import { PageContent } from './components/PageContent/PageContentContainer';
+import { MainPage } from './components/MainPage/MainPageContainer';
+import { AddNewHeroPage } from './components/AddNewHeroPage/AddNewHeroPage';
+import { HeroArrContextContainer } from './components/Context/HeroArrContextContainer';
+import { DetailsPage } from './components/DetailsPage/DetailsPage';
+import { PageNotFound } from './components/PageNotFound/PageNotFound';
 
-function App() {
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainPage />
+  },
+  {
+    path: '/AddHero',
+    element: <AddNewHeroPage />
+  },
+  {
+    path: '/Details',
+    element: <DetailsPage />
+  },
+  {
+    path: '*',
+    element: <PageNotFound />
+  }
+])
+
+const App = () => {
   return (
     <div className="App">
-      <PageContent />
+      <HeroArrContextContainer>
+        <RouterProvider router={router} />
+      </HeroArrContextContainer>
     </div>
   );
 }

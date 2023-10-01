@@ -1,6 +1,6 @@
 import Style from './style.module.css'
 import { SingleInputField } from "../UI/Inputs/SingelInputField"
-import { AddHeroBtn } from "../UI/Buttons/AddHeroBtn"
+import { HeroBtn } from "../UI/Buttons/HeroBtn"
 
 export const Form: React.FC<{newHeroName: string, setNewHeroName: (name: string) => void, newHeroHp: string, setNewHeroHp: (hp: string) => void, newHeroCity: string, setNewHeroCity: (city: string) => void, addNewHero: (e: React.MouseEvent<HTMLElement>) => void}> = (props) => {
     return (
@@ -23,7 +23,7 @@ export const Form: React.FC<{newHeroName: string, setNewHeroName: (name: string)
                 type={'text'}
                 placeholder={'Город'}
             />
-            <AddHeroBtn onClick={props.addNewHero}>Добавить героя</AddHeroBtn>
+            <HeroBtn onClick={props.addNewHero}>Добавить героя</HeroBtn>
         </form>
     )
 }

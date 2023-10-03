@@ -1,8 +1,8 @@
 import Style from './style.module.css'
 import { useState } from 'react'
-import { defaultHeroesArray } from '../database/database'
+import { defaultHeroesArray } from '../Database/Database'
 import { HeroesListOnPage} from '../HeroesListOnPage/HeroesListOnPage'
-import { IHeroObject } from '../database/database.type'
+import { IHeroObject } from '../Database/Database.type'
 import { HeroForm } from '../Form/HeroForm'
 
 export const PageContentContainer = () => {

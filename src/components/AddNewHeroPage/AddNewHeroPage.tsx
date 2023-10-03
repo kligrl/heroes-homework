@@ -4,6 +4,7 @@ import { HeroForm } from '../Form/HeroForm'
 import { useContext, useState } from 'react'
 import { IHeroObject } from '../Database/database.type'
 import { HeroArrContext } from '../Context/HeroArrContextContainer'
+import { useNavigate } from 'react-router'
 
 export const AddNewHeroPage = () => {
     const heroesArrContext = useContext(HeroArrContext)
@@ -11,6 +12,7 @@ export const AddNewHeroPage = () => {
     const [newHeroName, setNewHeroName] = useState('')
     const [newHeroHp, setNewHeroHp] = useState('')
     const [newHeroCity, setNewHeroCity] = useState('')
+    const navigate = useNavigate()
 
     const addNewHero = (e: React.MouseEvent<HTMLElement>): void => {
         e.preventDefault()
@@ -21,9 +23,7 @@ export const AddNewHeroPage = () => {
             id: numberOfHeroes
         }
         heroesArrContext.addHero(newHero)
-        setNewHeroName('')
-        setNewHeroHp('')
-        setNewHeroCity('')
+        navigate('/')
     }
 
     return (

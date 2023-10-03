@@ -4,7 +4,7 @@ import { HeroForm } from '../Form/HeroForm'
 import { useContext, useState } from 'react'
 import { IHeroObject } from '../Database/database.type'
 import { HeroArrContext } from '../Context/HeroArrContextContainer'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 
 export const EditHeroPage = () => {
     const {id: heroId} = useParams<{id: string}>()
@@ -12,6 +12,7 @@ export const EditHeroPage = () => {
     const [newHeroName, setNewHeroName] = useState(heroesArrContext.heroesArray[Number(heroId)].name)
     const [newHeroHp, setNewHeroHp] = useState(String(heroesArrContext.heroesArray[Number(heroId)].hp))
     const [newHeroCity, setNewHeroCity] = useState(heroesArrContext.heroesArray[Number(heroId)].city)
+    const navigate = useNavigate()
 
     const editHero = (e: React.MouseEvent<HTMLElement>): void => {
         e.preventDefault()
@@ -22,9 +23,7 @@ export const EditHeroPage = () => {
             id: Number(heroId)
         }
         heroesArrContext.editHero(newHero)
-        setNewHeroName(heroesArrContext.heroesArray[Number(heroId)].name)
-        setNewHeroHp(String(heroesArrContext.heroesArray[Number(heroId)].hp))
-        setNewHeroCity(heroesArrContext.heroesArray[Number(heroId)].city)
+        navigate('/details')
     }
 
     return (

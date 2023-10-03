@@ -4,7 +4,7 @@ import { HeroesListOnMainPage} from '../HeroesListOnPage/HeroesListOnMainPage'
 import { Links } from '../UI/Links/Links'
 import { HeroArrContext } from '../Context/HeroArrContextContainer'
 
-export const MainPage = () => {
+export const MainPageContainer = () => {
     const {heroesArray} = useContext(HeroArrContext)
     
     return (

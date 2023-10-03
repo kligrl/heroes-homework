@@ -1,4 +1,4 @@
-import { IHeroObject, TFillDeafaultArray } from "./Database.type";
+import { IHeroObject, TFillDeafaultArray } from "./database.type";
 
 const firstHero: IHeroObject = {
     name: 'Dr. Strange',

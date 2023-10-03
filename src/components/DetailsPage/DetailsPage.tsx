@@ -4,7 +4,7 @@ import { HeroesListOnDetailsPage } from '../HeroesListOnPage/HeroesListOnDetails
 import { HeroArrContext } from '../Context/HeroArrContextContainer'
 import { useContext } from 'react'
 
-export const DetailsPage = () => {
+export const  DetailsPage = () => {
     const {heroesArray} = useContext(HeroArrContext)
     return (
         <div>

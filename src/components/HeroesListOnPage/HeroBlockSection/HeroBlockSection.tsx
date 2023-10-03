@@ -1,6 +1,6 @@
 import Style from './style.module.css'
 import { TBlockProps } from './HeroBlockSection.type'
-import { Link } from 'react-router-dom'
+import { HeroesBlockButton } from './HeroesBlockButton'
 
 export const HeroBlockSection = (props: TBlockProps) => {
     return (
@@ -14,9 +14,10 @@ export const HeroBlockSection = (props: TBlockProps) => {
             <p className={Style.text}>
                 {props.city}
             </p>
-            {/* <div className={Style.btns}>
-                <Link to={'/EditHero/'+props.key} className={Style.btn}>Редактировать героя</Link>
-            </div> */}
+            {props.isEditButtonActive
+                ? <HeroesBlockButton id={props.id}/>
+                : null
+            }
         </div>
     )
 }

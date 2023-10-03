@@ -1,4 +1,4 @@
-export const HeroBtn = ({children, ...props}: any) => {
+export const Button = ({children, ...props}: any) => {
     return (
         <button {...props}>{children}</button>
     )

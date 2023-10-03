@@ -4,26 +4,27 @@ import { HeroForm } from '../Form/HeroForm'
 import { useContext, useState } from 'react'
 import { IHeroObject } from '../Database/database.type'
 import { HeroArrContext } from '../Context/HeroArrContextContainer'
+import { useParams } from 'react-router'
 
-export const AddNewHeroPage = () => {
+export const EditHeroPage = () => {
+    const {id: heroId} = useParams<{id: string}>()
     const heroesArrContext = useContext(HeroArrContext)
-    let numberOfHeroes: number = heroesArrContext.heroesArray.length
-    const [newHeroName, setNewHeroName] = useState('')
-    const [newHeroHp, setNewHeroHp] = useState('')
-    const [newHeroCity, setNewHeroCity] = useState('')
+    const [newHeroName, setNewHeroName] = useState(heroesArrContext.heroesArray[Number(heroId)].name)
+    const [newHeroHp, setNewHeroHp] = useState(String(heroesArrContext.heroesArray[Number(heroId)].hp))
+    const [newHeroCity, setNewHeroCity] = useState(heroesArrContext.heroesArray[Number(heroId)].city)
 
-    const addNewHero = (e: React.MouseEvent<HTMLElement>): void => {
+    const editHero = (e: React.MouseEvent<HTMLElement>): void => {
         e.preventDefault()
         const newHero: IHeroObject = {
             name: newHeroName,
             hp: Number(newHeroHp),
             city: newHeroCity,
-            id: numberOfHeroes
+            id: Number(heroId)
         }
-        heroesArrContext.addHero(newHero)
-        setNewHeroName('')
-        setNewHeroHp('')
-        setNewHeroCity('')
+        heroesArrContext.editHero(newHero)
+        setNewHeroName(heroesArrContext.heroesArray[Number(heroId)].name)
+        setNewHeroHp(String(heroesArrContext.heroesArray[Number(heroId)].hp))
+        setNewHeroCity(heroesArrContext.heroesArray[Number(heroId)].city)
     }
 
     return (
@@ -37,8 +38,8 @@ export const AddNewHeroPage = () => {
                     setNewHeroHp={setNewHeroHp} 
                     newHeroCity={newHeroCity} 
                     setNewHeroCity={setNewHeroCity} 
-                    setNewHero={addNewHero}
-                    isItNewHero={true}
+                    setNewHero={editHero}
+                    isItNewHero={false}
                 />
             </div>
         </div>

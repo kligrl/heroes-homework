@@ -18,10 +18,12 @@ export const heroSlice = createSlice({
             state.heroesList.push(action.payload)
         },
         editHero: (state, action: PayloadAction<IHeroObject>) => {
-            state.heroesList.map(hero => hero.id === action.payload.id ? action.payload: hero)
+            // state.heroesList.map(hero => hero.id === action.payload.id ? action.payload: hero)
+            state.heroesList.splice(state.heroesList.findIndex((hero) => hero.id === action.payload.id), 1, action.payload)
         },
         deleteHero: (state, action: PayloadAction<IHeroObject>) => {
-            state.heroesList.filter(hero => hero.id !== action.payload.id)
-        },
+            // state.heroesList.filter(hero => hero.id !== action.payload.id)
+            state.heroesList.splice(state.heroesList.findIndex((hero) => hero.id === action.payload.id), 1)
+        }
     }
 })

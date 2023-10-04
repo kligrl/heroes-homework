@@ -7,8 +7,6 @@ type THeroesBlockBtn = {
 
 export const HeroesBlockButton = (props: THeroesBlockBtn) => {
     return (
-        <div className={Style.btns}>
-                    <Link to={'/details/' + props.id} className={Style.btn}>Редактировать героя</Link>
-        </div>
+        <Link to={'/details/' + props.id} className={Style.btn}>Редактировать героя</Link>
     )
 }

@@ -2,10 +2,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import { MainPageContainer } from './components/Pages/MainPage/MainPageContainer';
 import { AddNewHeroPageContainer } from './components/Pages/AddNewHeroPage/AddNewHeroPageContainer';
-import { HeroArrContextContainer } from './components/Context/HeroArrContextContainer';
 import { DetailsPageContainer } from './components/Pages/DetailsPage/DetailsPageContainer';
 import { PageNotFound } from './components/PageNotFound/PageNotFound';
 import { EditHeroPageContainer } from './components/Pages/EditHeroPage/EditHeroPageContainer';
+import { Provider } from 'react-redux';
+import { store } from './components/Redux/store';
 
 const router = createBrowserRouter([
   {
@@ -33,9 +34,9 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <div className="App">
-      <HeroArrContextContainer>
+      <Provider store={store}>
         <RouterProvider router={router} />
-      </HeroArrContextContainer>
+      </Provider>
     </div>
   );
 }

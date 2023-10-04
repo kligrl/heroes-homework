@@ -1,14 +1,15 @@
 import Style from './style.module.css'
 import { Links } from '../../UI/Links/Links'
 import { HeroForm } from '../../Form/HeroForm'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { IHeroObject } from '../../Database/Database.type'
-import { HeroArrContext } from '../../Context/HeroArrContextContainer'
 import { useNavigate } from 'react-router'
+import { useAppDispatch } from '../../Redux/store'
+import { heroSlice } from '../../Redux/heroSlice'
 
 export const AddNewHeroPageContainer = () => {
-    const heroesArrContext = useContext(HeroArrContext)
-    let numberOfHeroes: number = heroesArrContext.heroesArray.length
+    const dispatch = useAppDispatch()
+    let numberOfHeroes: number = Math.random()
     const [newHeroName, setNewHeroName] = useState('')
     const [newHeroHp, setNewHeroHp] = useState('')
     const [newHeroCity, setNewHeroCity] = useState('')
@@ -22,7 +23,7 @@ export const AddNewHeroPageContainer = () => {
             city: newHeroCity,
             id: numberOfHeroes
         }
-        heroesArrContext.addHero(newHero)
+        dispatch(heroSlice.actions.addHero(newHero))
         navigate('/')
     }
 

@@ -16,7 +16,9 @@
 
 .btns {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-end;
 }
 
 .btn {
@@ -28,4 +30,5 @@
     padding: 3px;
     font-family: sans-serif;
     font-size: 12px;
+    cursor: pointer;
 }

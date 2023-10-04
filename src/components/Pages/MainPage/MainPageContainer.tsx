@@ -1,11 +1,12 @@
 import Style from './style.module.css'
-import { useContext } from 'react'
 import { HeroesListOnMainPage} from '../../HeroesListOnPage/HeroesListOnMainPage'
 import { Links } from '../../UI/Links/Links'
-import { HeroArrContext } from '../../Context/HeroArrContextContainer'
+import { IHeroObject } from '../../Database/Database.type'
+import { useAppSelector } from '../../Redux/store'
+import { selectHeroes } from '../../Redux/selectors'
 
 export const MainPageContainer = () => {
-    const {heroesArray} = useContext(HeroArrContext)
+    const heroesArray: IHeroObject[] = useAppSelector(selectHeroes)
     
     return (
         <div>

@@ -1,6 +1,6 @@
 import Style from './style.module.css'
 import { TBlockProps } from './HeroBlockSection.type'
-import { HeroesBlockButton } from './HeroesBlockButton'
+import { HeroesBlockAllButtons } from './HeroesBlockAllButtons'
 
 export const HeroBlockSection = (props: TBlockProps) => {
     return (
@@ -15,7 +15,7 @@ export const HeroBlockSection = (props: TBlockProps) => {
                 {props.city}
             </p>
             {props.isEditButtonActive
-                ? <HeroesBlockButton id={props.id}/>
+                ? <HeroesBlockAllButtons id={props.id}/>
                 : null
             }
         </div>

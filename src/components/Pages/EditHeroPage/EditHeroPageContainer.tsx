@@ -1,17 +1,21 @@
 import Style from './style.module.css'
 import { Links } from '../../UI/Links/Links'
 import { HeroForm } from '../../Form/HeroForm'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { IHeroObject } from '../../Database/Database.type'
-import { HeroArrContext } from '../../Context/HeroArrContextContainer'
 import { useNavigate, useParams } from 'react-router'
+import { useAppDispatch, useAppSelector } from '../../Redux/store'
+import { selectHeroes } from '../../Redux/selectors'
+import { heroSlice } from '../../Redux/heroSlice'
 
 export const EditHeroPageContainer = () => {
     const {id: heroId} = useParams<{id: string}>()
-    const heroesArrContext = useContext(HeroArrContext)
-    const [newHeroName, setNewHeroName] = useState(heroesArrContext.heroesArray[Number(heroId)].name)
-    const [newHeroHp, setNewHeroHp] = useState(String(heroesArrContext.heroesArray[Number(heroId)].hp))
-    const [newHeroCity, setNewHeroCity] = useState(heroesArrContext.heroesArray[Number(heroId)].city)
+    const heroesArray: IHeroObject[] = useAppSelector(selectHeroes)
+    const dispatch = useAppDispatch()
+    const indexToFind = heroesArray.findIndex(e => e.id === Number(heroId))
+    const [newHeroName, setNewHeroName] = useState(heroesArray[indexToFind].name)
+    const [newHeroHp, setNewHeroHp] = useState(String(heroesArray[indexToFind].hp))
+    const [newHeroCity, setNewHeroCity] = useState(heroesArray[indexToFind].city)
     const navigate = useNavigate()
 
     const editHero = (e: React.MouseEvent<HTMLElement>): void => {
@@ -22,7 +26,7 @@ export const EditHeroPageContainer = () => {
             city: newHeroCity,
             id: Number(heroId)
         }
-        heroesArrContext.editHero(newHero)
+        dispatch(heroSlice.actions.editHero(newHero))
         navigate('/details')
     }
 

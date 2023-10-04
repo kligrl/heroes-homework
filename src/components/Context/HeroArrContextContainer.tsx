@@ -1,6 +1,6 @@
 import { createContext, useState } from "react"
-import { defaultHeroesArray } from "../Database/database"
-import { IHeroObject } from "../Database/database.type"
+import { defaultHeroesArray } from "../Database/Database"
+import { IHeroObject } from "../Database/Database.type"
 
 export const HeroArrContext = createContext<{
     heroesArray: IHeroObject[],
@@ -18,9 +18,7 @@ export const HeroArrContextContainer: React.FC<{children: React.ReactNode}> = (p
         setHeroesArray([...heroesArray, newHero])
     }
     const editHero = (editHeroEntries: IHeroObject) => {
-        heroesArray[editHeroEntries.id].name = editHeroEntries.name
-        heroesArray[editHeroEntries.id].hp = editHeroEntries.hp
-        heroesArray[editHeroEntries.id].city = editHeroEntries.city
+        setHeroesArray(heroesArray.map((hero) => hero.id === editHeroEntries.id ? editHeroEntries: hero))
     }
 
     return (

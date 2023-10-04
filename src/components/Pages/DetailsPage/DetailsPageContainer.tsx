@@ -1,10 +1,10 @@
 import Style from './style.module.css'
-import { Links } from "../UI/Links/Links"
-import { HeroesListOnDetailsPage } from '../HeroesListOnPage/HeroesListOnDetailsPage'
-import { HeroArrContext } from '../Context/HeroArrContextContainer'
+import { Links } from "../../UI/Links/Links"
+import { HeroesListOnDetailsPage } from '../../HeroesListOnPage/HeroesListOnDetailsPage'
+import { HeroArrContext } from '../../Context/HeroArrContextContainer'
 import { useContext } from 'react'
 
-export const  DetailsPage = () => {
+export const  DetailsPageContainer = () => {
     const {heroesArray} = useContext(HeroArrContext)
     return (
         <div>

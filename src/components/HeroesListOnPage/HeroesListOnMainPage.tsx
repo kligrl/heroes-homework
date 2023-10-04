@@ -1,4 +1,4 @@
-import { IHeroObject } from "../Database/database.type"
+import { IHeroObject } from "../Database/Database.type"
 import { HeroBlockSection } from "./HeroBlockSection/HeroBlockSection"
 
 export const HeroesListOnMainPage: React.FC<{heroes: IHeroObject[]}> = (props) => {

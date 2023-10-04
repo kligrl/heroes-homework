@@ -1,12 +1,12 @@
 import Style from './style.module.css'
-import { Links } from '../UI/Links/Links'
-import { HeroForm } from '../Form/HeroForm'
+import { Links } from '../../UI/Links/Links'
+import { HeroForm } from '../../Form/HeroForm'
 import { useContext, useState } from 'react'
-import { IHeroObject } from '../Database/database.type'
-import { HeroArrContext } from '../Context/HeroArrContextContainer'
+import { IHeroObject } from '../../Database/Database.type'
+import { HeroArrContext } from '../../Context/HeroArrContextContainer'
 import { useNavigate, useParams } from 'react-router'
 
-export const EditHeroPage = () => {
+export const EditHeroPageContainer = () => {
     const {id: heroId} = useParams<{id: string}>()
     const heroesArrContext = useContext(HeroArrContext)
     const [newHeroName, setNewHeroName] = useState(heroesArrContext.heroesArray[Number(heroId)].name)

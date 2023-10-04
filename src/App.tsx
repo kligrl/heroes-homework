@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
-import { MainPageContainer } from './components/MainPage/MainPageContainer';
-import { AddNewHeroPage } from './components/AddNewHeroPage/AddNewHeroPage';
+import { MainPageContainer } from './components/Pages/MainPage/MainPageContainer';
+import { AddNewHeroPageContainer } from './components/Pages/AddNewHeroPage/AddNewHeroPageContainer';
 import { HeroArrContextContainer } from './components/Context/HeroArrContextContainer';
-import { DetailsPage } from './components/DetailsPage/DetailsPage';
+import { DetailsPageContainer } from './components/Pages/DetailsPage/DetailsPageContainer';
 import { PageNotFound } from './components/PageNotFound/PageNotFound';
-import { EditHeroPage } from './components/EditHeroPage/EditHeroPage';
+import { EditHeroPageContainer } from './components/Pages/EditHeroPage/EditHeroPageContainer';
 
 const router = createBrowserRouter([
   {
@@ -14,15 +14,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/add-hero',
-    element: <AddNewHeroPage />
+    element: <AddNewHeroPageContainer />
   },
   {
     path: '/details',
-    element: <DetailsPage />
+    element: <DetailsPageContainer />
   },
   {
     path: '/details/:id',
-    element: <EditHeroPage />
+    element: <EditHeroPageContainer />
   },
   {
     path: '*',

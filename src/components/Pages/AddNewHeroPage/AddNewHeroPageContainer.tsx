@@ -1,12 +1,12 @@
 import Style from './style.module.css'
-import { Links } from '../UI/Links/Links'
-import { HeroForm } from '../Form/HeroForm'
+import { Links } from '../../UI/Links/Links'
+import { HeroForm } from '../../Form/HeroForm'
 import { useContext, useState } from 'react'
-import { IHeroObject } from '../Database/database.type'
-import { HeroArrContext } from '../Context/HeroArrContextContainer'
+import { IHeroObject } from '../../Database/Database.type'
+import { HeroArrContext } from '../../Context/HeroArrContextContainer'
 import { useNavigate } from 'react-router'
 
-export const AddNewHeroPage = () => {
+export const AddNewHeroPageContainer = () => {
     const heroesArrContext = useContext(HeroArrContext)
     let numberOfHeroes: number = heroesArrContext.heroesArray.length
     const [newHeroName, setNewHeroName] = useState('')
